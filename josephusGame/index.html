@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Josephus</title>
+    <script src="script.js"> </script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+    <link rel = "stylesheet" href = "style12.css">
+
+    
+</head>
+<body>
+    <!-- the title and explation of the game -->
+    <div class="block">
+        <div class="box">
+            <h1 class="title">The Josephus Game</h1>
+        </div>
+        <div class="container" style = "margin-top: 50px;">
+            <div class = "block" style = "margin-left: 30px; margin-right: 40px;">
+                <p> 
+                Welcome to the Josephus game;
+                <br> 
+                <br>
+                Insipired by Peter Schumer's 
+                <a href = "https://www.jstor.org/stable/3219179?seq=1"> Journal Article </a>
+                "The Josephus Problem: Once More around".
+                <br> <br> 
+                Explanation: <br> 
+                This is a counting out game.  <br>
+                
+                People are standing in a circle waiting to be executed. 
+                Counting begins at point 1 in the circle and proceeds 
+                around the circle in a clockwise direction. each person
+                executing the person to their right.
+                <br>The procedure is repeated with the remaining people, 
+                starting with the next person, going in the same direction
+                until only one person remains and is freed. 
+
+                <br> <br> 
+            </div>
+        </div>
+        <!-- Pictures of the Josephus Game Explaning how it works, the pictures are arranged
+            horizontally using 5 columns that are wrapper in a parent comumn, which is inturn wrapped in
+            in a container  -->
+        <div class="container" style = "margin-top: 20px;">
+            <div class="columns">
+                <div class="column">
+                    <div id = "initiaL" class= "card">
+                        <figure class="image is-200px">
+                        <img src="initial.png">
+                      </figure>
+
+                    </div> 
+                </div>
+
+                <div class="column">
+                    <div class="card" style ="height: 95%">
+                       <figure class="imgage">
+                        <img src="pass1.png" alt="" class="">
+                    </figure> 
+                    </div>
+                </div>
+
+                <div class="column"> 
+                  <div class="card" style ="height: 95%" >
+                       <figure>
+                    <img src="pass2.png" alt="" class="">
+                        </figure>
+                  </div> 
+                </div>
+
+                <div class="column">
+                    <div class="card" style ="height: 95%">
+                       <figure class="">
+                    <img src="pass3.png" alt="" class="">
+                  </figure> 
+                    </div>
+                  
+                </div>
+                
+                <div class="column">
+                    <div class="card" style ="height: 95%">
+                     <figure class="">
+                        <img src="final.png" alt="" class="">
+                    </figure>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- GAME EXPLANATION
+            An Explanation of the game objectuves and game rules, wrapped in a container -->
+    <div class="container">
+        <div class = "block" style = "margin-left: 30px">
+            <div class="" style = "margin-left: 30px; margin-right: 40px;">
+                <p class="is centered"  style = "margin-left: 50px; margin-right: 40px;">
+                <p> 
+                 In the example above, the game consists of 8 people, 
+                 and the winner turns out be the person sitting at position 1
+                 <br> So if the game had 8 people, you would want to sit at position 1 to live and be freed.
+                </p>
+                
+                <br> Objective: <br>
+                
+                The Objective is to try and figuire out what position you should sit at
+                (given the number had x number of participants), in order to be the last
+                person to be executed and thus
+                live. 
+
+                <br> <br>
+                Instructions:
+                <br> 1. When you press start the, you will be given the Number of People in the 
+                circle.
+                <br> 
+                2. enter the winning seat and then press "answer"
+                <br>
+                3. a 30 second timer will then start and you will have 2 minutes to enter am answer 
+                in the box. 
+                <br>
+        
+                4. You will get a point for each correct answer
+                <br>
+                5. The game will get harder as you gain more points
+
+                <br>
+            </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- NUMBER OF PEOPLE CARD
+        sets the label to a random number of People, in a coumnn, another column has a text input 
+        for the user to enter their answer -->
+    <div class="container">
+        <div class="block" style="margin-left: 100px">
+            <!-- NUMBER OF PEOPLE AND USER ANSWER -->
+            <div class="columns" style = "margin-bottom: 100px; margin-top: 20px; padding-left: 100px">
+                <div class="column">
+                     <div class="card" style = "width: 345px; height: 340px;"> 
+                        <p style = "margin-top: 70px; text-align: center;">
+                            The Number of Participants is: 
+                            <br>
+                            <h1 id = "people" class = "title has-text-link is-family-secondary" style = "text-align: center; font-size: 100px"> 
+                            0 
+                            </h1>
+                        </p>
+
+                        <div class="card-content" style = "margin-top: -30px; height: 195px">
+                            <div class="content">
+                                <div class="columns">
+                                    <div class="column is-three-fifths" style="margin-bottom: 15px">
+                                        <input id = "answerField"type="text" class="input" placeholder = "what is the wining seat?" >
+                                    </div>
+                                    <div class="column">
+                                        <div onclick="correctAnswer(this)"  id = "answerButton" class="button is-info">
+                                            answer 
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+        
+                <!-- START AND RESTART BUTTON -->
+                <div class="column" style="margin-top: 0px; height: 200px;">
+                   <div style="margin-top: 20px;">
+                        <span onclick="start(this)" class="button is-success is-outlined">
+                            <i class="fas fa-stopwatch" style="margin-right: 4px"></i>
+                             Start 
+                        </span>
+                        <span onclick="increaseScore(this)" class="button is-danger" id="restartButton">
+                            <i id = "restartY" class="fas fa-redo" style="margin-right: 4px; "> </i>
+                            Restart 
+                        </span>  
+                    </div>
+
+                    <!-- CORRECT ANSWER LABEL -->
+                    <div class="card" style="height: 50px; width: 150px; margin-left: 25px;margin-top: 10px border-width 2px;" >
+                        <div class="card-content">
+                            <h1 id = "resultLabel" class = "subtitle is-centered" style="font-size: 30px; margin-top: -15px;" > 
+                                <!-- correct  -->
+                            </h1>
+                        </div>
+                    </div> 
+                    <div class="card" style="margin-top: 10px;  margin-left: 30px; height: 100px; width: 140px;">
+                        <div class="card-content">
+                            <h1 class = "subtitle has-text-link" style="font-size: 13px;"> 
+                            correct answer:
+                            </h1>
+                            <h1 id = "correctAnwerLabel" class = "title has-text-info" style = "text-align: center; font-size: 50px"> 
+                                <!-- 0 -->
+                            </h1>
+
+                        </div>
+                    </div> 
+
+                    <div class="card" style="margin-top: 10px;  margin-left: 30px; height: 100px; width: 140px;">
+                        <div class="card-content ">
+                            <h1 class = "subtitle is-centered has-text-warning" style="margin-left: 15px; margin-top: -10px; font-size: 18px;"> 
+                            Points:
+                            </h1>
+                            <h1 id = "pointsLabel" class = "title has-text-warning" style = "text-align: center; font-size: 50px"> 
+                               0
+                            </h1>
+
+                        </div>
+                    </div> 
+                   
+        
+                </div>
+                <!-- TIMER
+                    the timer layout -->
+                <div class="column">
+                    <div class="card is-centered" style = "width: 345px; margin-right: 105px;">
+                        <div class="card-content" style = "height: 340px">
+                            <div class="base-timer">
+                                <svg class="base-timer__svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                                <g id= "baseTimerC"class="base-timer__circle">
+                                    <circle class="base-timer__path-elapsed" cx="50" cy="50" r="45" />
+                                    <path 
+                                        id="base-timer-path-remaining"
+                                        stroke-dasharray="283"
+                                        class="base-timer__path-remaining" 
+                                        d="
+                                        M 50, 50
+                                        m -45, 0
+                                        a 45,45 0 1,0 90,0
+                                        a 45,45 0 1,0 -90,0"
+                                        ></path>
+                                    
+                                </g>
+                                </svg>
+                                <span id = "base-timer-label" class = "base-timer__label">
+                                    0:15
+                                </span>   
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
