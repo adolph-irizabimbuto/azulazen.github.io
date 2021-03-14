@@ -100,6 +100,7 @@ function startTimer() {
       let watchLabel = document.getElementById("base-timer-label")
       document.getElementById("baseTimerC").style.fill = "white";
       watchLabel.innerHTML = "Game Over";
+      watchLabel.style.fontSize = "2.5rem"
 
       document.getElementById("answerButton").setAttribute("class", "button is-static");
       document.getElementById("correctAnwerLabel").innerHTML = 
@@ -157,15 +158,12 @@ function correctAnswer() {
     
    
     document.getElementById("pointsLabel").innerHTML = score;
-    let tf = timeLeft
-    scoreTime = tf + 3;
-    timeLeft = tf;
     resultLabel.innerHTML = "Correct";
     resultLabel.style.color = "green"
     resultLabel.style.fontSize = "30px";
     clearInterval(timerInterval);
     document.getElementById("correctAnwerLabel").innerHTML = correctAnswer;
-    document.getElementById("restartButton").innerHTML = "Next";
+    document.getElementById("startNext").innerHTML = " Next Question";
     document.getElementById("restartY").setAttribute("class", "fas fa-hand-point-right");
     
 
